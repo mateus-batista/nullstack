@@ -89,9 +89,9 @@ export default function rerender(selector, current, next) {
           if (current.attributes[name] !== undefined && next.attributes[name] === undefined) {
             selector.removeAttribute(name);
           } else if (current.attributes[name] !== next.attributes[name]) {
-            if (name != 'value' && next.attributes[name] === false || next.attributes[name] === null || next.attributes[name] === undefined) {
+            if (name != 'value' && next.attributes[name] === false || next.attributes[name] === "false" || next.attributes[name] === null || next.attributes[name] === undefined) {
               selector.removeAttribute(name);
-            } else if (name != 'value' && next.attributes[name] === true) {
+            } else if (name != 'value' && next.attributes[name] === true || next.attributes[name] === "true") {
               selector.setAttribute(name, '');
             } else {
               selector.setAttribute(name, next.attributes[name]);
